@@ -31,6 +31,7 @@ elif a =='튀김': a = 튀김
 elif a =='국물': a = 국물
 elif a =='구이': a = 구이
 elif a =='비빔': a = 비빔
+else: print("잘못된 입력입니다."); exit()
 
 if b =='밥': b = 밥
 elif b =='빵': b = 빵
@@ -41,6 +42,7 @@ elif b =='튀김': b = 튀김
 elif b =='국물': b = 국물
 elif b =='구이': b = 구이
 elif b =='비빔': b = 비빔
+else: print("잘못된 입력입니다."); exit()
 
 text = "추천하는 메뉴는"
 recommend_menu = set(a) & set(b)
@@ -49,8 +51,9 @@ for i in recommend_menu :
     text += i
 
 text += "입니다."
-
-print("추천하는 메뉴는",recommend_menu,"입니다")
+if recommend_menu != set():
+    print("추천하는 메뉴는",recommend_menu,"입니다")
+else: print("선택하신 카테고리에 일치하는 메뉴가 없습니다."); exit()
 
 tts = gTTS(text=text, lang='ko')
 tts.save("2.mp3")
@@ -67,6 +70,7 @@ spicy = input("맵기정도를 선택해 주세요.\n")
 if spicy == '매운맛': spicy = 매운맛
 elif spicy == '중간맛': spicy = 중간맛
 elif spicy == '순한맛': spicy = 순한맛
+else: print("잘못된 입력입니다."); exit()
 
 recommend_menu1 = set(recommend_menu) & set(spicy)
 
